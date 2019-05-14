@@ -47,12 +47,10 @@ commandLineParser.add_argument('loss',
                                choices=['KL', 'NLL-MI', 'NLL-DE'],
                                help='which should be loaded')
 commandLineParser.add_argument('mode',
-                               choices=['OOD', 'ADV', 'ADV+OOD', 'ID'],
+                               choices=['OOD', 'ID'],
                                help='which should be loaded')
 commandLineParser.add_argument('--gpu', type=int, default=0,
                                help='Specify path to which model should be saved')
-commandLineParser.add_argument('--adv_targeted', type=bool, default=False,
-                               help='which should be loaded')
 commandLineParser.add_argument('--smoothing', type=float, default=1e-2,
                                help='which orignal data is saved should be loaded')
 commandLineParser.add_argument('--fa_path', type=str, default=None,
@@ -103,7 +101,6 @@ def main(argv=None):
                            n_examples=args.data_size,
                            alpha_target=args.alpha_target,
                            noise_pattern=args.noise_path,
-                           adv_targeted=args.adv_targeted,
                            cycle_length=args.cycle_length,
                            mode=args.mode,
                            smoothing=args.smoothing,
